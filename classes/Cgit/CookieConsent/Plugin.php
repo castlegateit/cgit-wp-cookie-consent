@@ -111,12 +111,27 @@ class Plugin
     /**
      * Insert initialization script
      *
+     * The default behaviour is to insert the popup as the first element in the
+     * document body. Here, unless this behaviour is explicitly requested by
+     * setting autoAttach to true, the popup is inserted as the last element in
+     * the document body using a custom function.
+     *
      * @return void
      */
     public function insertInitScript()
     {
+        if (!isset($this->options['autoAttach'])) {
+            $this->options['autoAttach'] = false;
+        }
+
         $code = sprintf('window.addEventListener("load", function () {
-            window.cookieconsent.initialise(%s);
+            window.cookieconsent.initialise(%s, function (instance) {
+                if (instance.options.autoAttach) {
+                    return;
+                }
+
+                document.body.appendChild(instance.element);
+            });
         });', json_encode($this->options));
 
         wp_add_inline_script($this->name, $code);
