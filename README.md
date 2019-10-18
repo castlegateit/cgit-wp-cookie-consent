@@ -1,6 +1,6 @@
 # Castlegate IT WP Cookie Consent
 
-Castlegate IT WP Cookie Consent is a simple plugin wrapper for [Cookie Consent by Insite](https://cookieconsent.insites.com/). You can edit the options via a WordPress filter. For example:
+Castlegate IT WP Cookie Consent is a simple plugin wrapper for [Cookie Consent by Osano](https://cookieconsent.osano.com/). You can edit the options via a WordPress filter. For example:
 
 ~~~ php
 add_filter('cgit_cookie_consent_options', function ($options) {
@@ -10,7 +10,19 @@ add_filter('cgit_cookie_consent_options', function ($options) {
 });
 ~~~
 
-Please refer to the [Cookie Consent documentation](https://cookieconsent.insites.com/documentation/javascript-api/) for a complete list of options.
+Please refer to the [Cookie Consent documentation](https://cookieconsent.osano.com/documentation/javascript-api/) for a complete list of options.
+
+## Popup location
+
+From version 2.1, this plugin overrides the default Cookie Consent configuration to place the consent popup at the end of the document body. To revert to the original behaviour, where the popup is inserted as the first element in the document body, set the `autoAttach` option to `true`:
+
+~~~ php
+add_filter('cgit_cookie_consent_options', function ($options) {
+    $options['autoAttach'] = true;
+
+    return $options;
+});
+~~~
 
 ## License
 
