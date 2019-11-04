@@ -1,4 +1,0 @@
-[submodule "cookieconsent"]
-	path = lib/cookieconsent
-	url = https://github.com/osano/cookieconsent.git
-    branch = master
