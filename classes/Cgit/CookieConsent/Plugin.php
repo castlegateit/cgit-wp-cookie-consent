@@ -16,14 +16,14 @@ class Plugin
      *
      * @var string
      */
-    private $script = 'lib/cookieconsent/build/cookieconsent.min.js';
+    private $script = 'dist/js/script.min.js';
 
     /**
      * Style file path relative to plugin directory
      *
      * @var string
      */
-    private $style = 'lib/cookieconsent/build/cookieconsent.min.css';
+    private $style = 'dist/css/style.min.css';
 
     /**
      * Script name

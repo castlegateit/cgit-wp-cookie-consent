@@ -4,8 +4,8 @@
 
 Plugin Name: Castlegate IT WP Cookie Consent
 Plugin URI: https://github.com/castlegateit/cgit-wp-cookie-consent
-Description: Plugin wrapper for Cookie Consent by Insites
-Version: 2.1
+Description: Plugin wrapper for Cookie Consent by Osano
+Version: 2.2.0
 Author: Castlegate IT
 Author URI: https://www.castlegateit.co.uk/
 Network: true

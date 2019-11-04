@@ -24,6 +24,14 @@ add_filter('cgit_cookie_consent_options', function ($options) {
 });
 ~~~
 
+## Development
+
+All the CSS and JavaScript files required by this plugin are bundled in this repository. However, if you want to update or make changes them, you will need to install the third-party dependencies with npm:
+
+    npm install
+
+Then update the packages and/or edit gulpfile.js to make changes to the styles and scripts provided by this plugin.
+
 ## License
 
 Copyright (c) 2019 Castlegate IT. All rights reserved.

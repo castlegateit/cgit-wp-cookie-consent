@@ -1,0 +1,25 @@
+{
+  "name": "cgit-wp-cookie-consent",
+  "version": "2.2.0",
+  "description": "WordPress plugin wrapper for Cookie Consent by Osano",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/castlegateit/cgit-wp-cookie-consent.git"
+  },
+  "author": "",
+  "license": "AGPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/castlegateit/cgit-wp-cookie-consent/issues"
+  },
+  "homepage": "https://github.com/castlegateit/cgit-wp-cookie-consent#readme",
+  "devDependencies": {
+    "cookieconsent": "^3.1.1",
+    "del": "^5.1.0",
+    "gulp": "^4.0.2",
+    "gulp-rename": "^1.4.0"
+  }
+}
