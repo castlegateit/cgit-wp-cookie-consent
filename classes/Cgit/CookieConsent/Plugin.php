@@ -60,7 +60,6 @@ class Plugin
     {
         $this->plugin = CGIT_COOKIE_CONSENT_PLUGIN;
         $this->name = pathinfo($this->plugin, PATHINFO_FILENAME);
-        $this->options = apply_filters('cgit_cookie_consent_options', $this->options);
 
         add_action('wp_enqueue_scripts', [$this, 'enqueue']);
     }
@@ -120,6 +119,8 @@ class Plugin
      */
     public function insertInitScript()
     {
+        $this->options = apply_filters('cgit_cookie_consent_options', $this->options);
+
         if (!isset($this->options['autoAttach'])) {
             $this->options['autoAttach'] = false;
         }
