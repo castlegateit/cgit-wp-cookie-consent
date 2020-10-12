@@ -58,7 +58,9 @@ class Plugin
      *
      * @var array
      */
-    private $staticOptions = [];
+    private $staticOptions = [
+        'hasTransition' => false,
+    ];
 
     /**
      * Construct
