@@ -1,6 +1,6 @@
 {
   "name": "cgit-wp-cookie-consent",
-  "version": "2.2.0",
+  "version": "2.3.2",
   "description": "WordPress plugin wrapper for Cookie Consent by Osano",
   "main": "index.js",
   "scripts": {
