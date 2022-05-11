@@ -49,6 +49,7 @@ class Plugin
                 'background' => '#fff',
             ],
         ],
+        'autoAttach' => true,
     ];
 
     /**
@@ -156,17 +157,9 @@ class Plugin
             );
         }
 
-        $code = sprintf('window.addEventListener("load", function () {
-            %s
-
-            window.cookieconsent.initialise(%s, function (instance) {
-                if (instance.options.autoAttach) {
-                    return;
-                }
-
-                document.body.appendChild(instance.element);
-            });
-        });', $static_options, $options);
+        $code = sprintf('%s
+            window.cookieconsent.initialise(%s);
+        ', $static_options, $options);
 
         wp_add_inline_script($this->name, $code);
     }
