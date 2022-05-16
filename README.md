@@ -25,11 +25,11 @@ Please refer to the [Cookie Consent documentation](https://www.osano.com/cookiec
 
 ## Popup location
 
-From version 2.1, this plugin overrides the default Cookie Consent configuration to place the consent popup at the end of the document body. To revert to the original behaviour, where the popup is inserted as the first element in the document body, set the `autoAttach` option to `true`:
+By default, the popup is added to the start of the document body. If the `autoAttach` option is set to `false`, the popup will be added to the end of the document body.
 
 ~~~ php
 add_filter('cgit_cookie_consent_options', function ($options) {
-    $options['autoAttach'] = true;
+    $options['autoAttach'] = false;
 
     return $options;
 });
