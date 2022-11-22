@@ -122,10 +122,9 @@ class Plugin
     /**
      * Insert initialization script
      *
-     * The default behaviour is to insert the popup as the first element in the
-     * document body. Here, unless this behaviour is explicitly requested by
-     * setting autoAttach to true, the popup is inserted as the last element in
-     * the document body using a custom function.
+     * If the autoAttach option is false, the popup is inserted as the last
+     * element in the document body. Otherwise, the popup is inserted
+     * automatically as the first element.
      *
      * @return void
      */
@@ -133,10 +132,6 @@ class Plugin
     {
         $this->options = apply_filters('cgit_cookie_consent_options', $this->options);
         $this->staticOptions = apply_filters('cgit_cookie_consent_static_options', $this->staticOptions);
-
-        if (!isset($this->options['autoAttach'])) {
-            $this->options['autoAttach'] = false;
-        }
 
         $options = json_encode($this->options);
         $static_options = '';
@@ -157,10 +152,25 @@ class Plugin
             );
         }
 
-        $code = sprintf('%s
-            window.cookieconsent.initialise(%s);
-        ', $static_options, $options);
+        // Load automatically (default behaviour) or on window load, depending
+        // on the value of the autoAttach option.
+        if ($this->options['autoAttach'] ?? true) {
+            $code = sprintf('%s window.cookieconsent.initialise(%s);', $static_options, $options);
+        } else {
+            $code = sprintf('window.addEventListener("load", function () {
+                %s
 
+                window.cookieconsent.initialise(%s, function (instance) {
+                    if (instance.options.autoAttach) {
+                        return;
+                    }
+
+                    document.body.appendChild(instance.element);
+                });
+            });', $static_options, $options);
+        }
+
+        // Print script.
         wp_add_inline_script($this->name, $code);
     }
 }
