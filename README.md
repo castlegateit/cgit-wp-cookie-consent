@@ -10,7 +10,18 @@ add_filter('cgit_cookie_consent_options', function ($options) {
 });
 ~~~
 
-Please refer to the [Cookie Consent documentation](https://cookieconsent.osano.com/documentation/javascript-api/) for a complete list of options.
+You can also edit the `status` and `hasTransition` static options:
+
+~~~ php
+add_filter('cgit_cookie_consent_static_options', function ($options) {
+    $options['status'] = ['deny' => 'deny'];
+    $options['hasTransition'] = false;
+
+    return $options;
+});
+~~~
+
+Please refer to the [Cookie Consent documentation](https://www.osano.com/cookieconsent/documentation/javascript-api/) for a complete list of options.
 
 ## Popup location
 
